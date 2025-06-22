@@ -1,12 +1,16 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Geist } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
 import { ModeToggle } from '@/components/toggle-mode-button';
 import { AppSidebar } from '@/components/app-sidebar';
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 
-const inter = Inter({ subsets: ['latin'] });
+const geist = Geist({
+    subsets: ['latin'],
+    weight: ['300', '400'],
+    variable: '--font-geist',
+});
 
 export const metadata: Metadata = {
     title: 'Mert Yıldız',
@@ -20,7 +24,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <body className={inter.className}>
+            <body className={geist.className}>
                 <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
                     <SidebarProvider>
                         <AppSidebar />
