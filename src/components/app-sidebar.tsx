@@ -18,7 +18,7 @@ import { NavSecondary } from '@/components/nav-secondary';
 const data = {
     navMain: [
         {
-            title: 'Ana Sayfa',
+            title: 'Home',
             url: '/',
             icon: Home,
             shortcut: '1',

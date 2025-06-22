@@ -29,13 +29,21 @@ export default function RootLayout({
                     <SidebarProvider>
                         <AppSidebar />
                         <main className="flex-1">
-                            <div className="fixed top-4 left-4 z-50">
-                                <SidebarTrigger className="md:hidden" />
+                            {/* Mobile header */}
+                            <div className="md:hidden fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
+                                <div className="flex justify-between items-center p-4">
+                                    <SidebarTrigger />
+                                    <ModeToggle />
+                                </div>
                             </div>
-                            <div className="fixed top-4 right-4 z-50">
+
+                            {/* Desktop mode toggle - top right fixed */}
+                            <div className="hidden md:block fixed top-4 right-4 z-50">
                                 <ModeToggle />
                             </div>
-                            <div className="flex flex-1 flex-col gap-4 p-4 transition-all duration-300 ease-in-out">
+
+                            {/* Content */}
+                            <div className="pt-20 md:pt-16 flex flex-1 flex-col gap-4 p-4 transition-all duration-300 ease-in-out">
                                 <div className="animate-in fade-in slide-in-from-bottom-2 duration-500 ease-out">
                                     {children}
                                 </div>
