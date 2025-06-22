@@ -74,7 +74,7 @@ export function NavMain({
                                             {item.shortcut && (
                                                 <Badge
                                                     variant="secondary"
-                                                    className="ml-auto text-xs px-1.5 py-0.5 bg-primary-foreground/20 text-primary-foreground"
+                                                    className="ml-auto text-xs px-1.5 py-0.5 bg-primary-foreground/20 text-primary-foreground hidden md:flex"
                                                 >
                                                     {item.shortcut}
                                                 </Badge>
@@ -92,7 +92,10 @@ export function NavMain({
                                                 <span>{item.title}</span>
                                             </div>
                                             {item.shortcut && (
-                                                <Badge variant="secondary" className="ml-auto text-xs px-1.5 py-0.5">
+                                                <Badge
+                                                    variant="secondary"
+                                                    className="ml-auto text-xs px-1.5 py-0.5 hidden md:flex"
+                                                >
                                                     {item.shortcut}
                                                 </Badge>
                                             )}

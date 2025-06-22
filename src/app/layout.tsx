@@ -4,7 +4,8 @@ import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
 import { ModeToggle } from '@/components/toggle-mode-button';
 import { AppSidebar } from '@/components/app-sidebar';
-import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
+import { MobileDrawer } from '@/components/mobile-drawer';
+import { SidebarProvider } from '@/components/ui/sidebar';
 
 const geist = Geist({
     subsets: ['latin'],
@@ -27,12 +28,16 @@ export default function RootLayout({
             <body className={geist.className}>
                 <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
                     <SidebarProvider>
-                        <AppSidebar />
+                        {/* Desktop Sidebar */}
+                        <div className="hidden md:block">
+                            <AppSidebar />
+                        </div>
+
                         <main className="flex-1">
                             {/* Mobile header */}
                             <div className="md:hidden fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
                                 <div className="flex justify-between items-center p-4">
-                                    <SidebarTrigger />
+                                    <MobileDrawer />
                                     <ModeToggle />
                                 </div>
                             </div>
