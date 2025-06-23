@@ -1,12 +1,16 @@
-import { Button } from '@/components/ui/button';
+import { Suspense } from 'react';
+import LetterboxdHeader from '@/components/letterboxd-header';
+import LetterboxdGrid from '@/components/letterboxd-grid';
+import LetterboxdGridSkeleton from '@/components/letterboxd-grid-skeleton';
 
-export default function Home() {
+export default function LetterboxdPage() {
     return (
-        <div className="flex items-center justify-center min-h-[calc(100vh-8rem)]">
-            <div className="text-center">
-                <h1 className="text-4xl font-bold mb-4">Web Developer3</h1>
-                <Button>Click me</Button>
-            </div>
+        <div className="container mx-auto px-6 py-8">
+            <LetterboxdHeader />
+
+            <Suspense fallback={<LetterboxdGridSkeleton />}>
+                <LetterboxdGrid username="Aithra" limit={50} />
+            </Suspense>
         </div>
     );
 }
