@@ -20,7 +20,7 @@ export function NavSecondary({
 }) {
     return (
         <SidebarGroup>
-            <SidebarGroupLabel>Sosyal Medya</SidebarGroupLabel>
+            <SidebarGroupLabel>Social</SidebarGroupLabel>
             <SidebarGroupContent>
                 <SidebarMenu>
                     {items.map((item) => (

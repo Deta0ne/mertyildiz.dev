@@ -91,17 +91,21 @@ class LetterboxdProcessor {
   }
 
   private static extractReview(item: LetterboxdRSSItem): string {
-    if (!item.content) return '';
+    const content = item.content || item.contentSnippet || (item as any).description || '';
+    if (!content) return '';
 
-    const cleanContent = this.stripHTML(item.content);
+    const cleanContent = this.stripHTML(content);
     
     const reviewText = cleanContent
       .replace(/Watched on .*/gi, '')
       .replace(/★+/g, '')
+      .replace(/This review may contain spoilers\./gi, '')
+      .replace(/This review may contain spoilers/gi, '')
+      .replace(/(This|The) review (may )?contain(s)? spoilers?\.?/gi, '')
       .replace(item.title || '', '')
       .trim();
 
-    return reviewText.length > 10 ? reviewText : '';
+    return reviewText.length > 3 ? reviewText : '';
   }
 
   static processItem(item: LetterboxdRSSItem): ProcessedFilmLog {
@@ -155,7 +159,8 @@ export async function getLetterboxdData(
           'letterboxd:filmTitle',
           'letterboxd:filmYear',
           'letterboxd:memberRating',
-          'tmdb:movieId'
+          'tmdb:movieId',
+          'description'
         ]
       },
       timeout: 10000,
