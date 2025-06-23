@@ -76,7 +76,7 @@ export default function FilmCard({
                                             </div>
                                         )}
                                     </div>
-                                    <div className="bg-background/90 backdrop-blur-sm rounded-full px-1.5 py-0.5 border border-border/50">
+                                    <div className="bg-background/90 backdrop-blur-sm rounded-full px-1.5 py-0.5 border border-border/50 flex items-center justify-center">
                                         <span className="text-foreground text-xs font-medium">
                                             {formatDate(watchedDate)}
                                         </span>
