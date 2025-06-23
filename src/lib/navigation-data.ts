@@ -1,4 +1,4 @@
-import { Home, User, Briefcase, Github, Linkedin, Twitter, Instagram } from 'lucide-react';
+import { Home, User, Briefcase, Github, Linkedin, Twitter, Instagram, Film } from 'lucide-react';
 
 export const navigationData = {
     navMain: [
@@ -19,6 +19,12 @@ export const navigationData = {
             url: '/stack',
             icon: Briefcase,
             shortcut: '3',
+        },
+        {
+            title: 'Letterboxd',
+            url: '/letterboxd',
+            icon: Film,
+            shortcut: '4',
         },
     ],
     navSecondary: [
