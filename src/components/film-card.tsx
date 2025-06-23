@@ -1,6 +1,5 @@
-import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Calendar, ExternalLink, Star } from 'lucide-react';
+import { Card } from '@/components/ui/card';
+import { Star } from 'lucide-react';
 import Link from 'next/link';
 
 interface FilmCardProps {
@@ -40,68 +39,72 @@ export default function FilmCard({
 
         for (let i = 0; i < 5; i++) {
             if (i < fullStars) {
-                stars.push(<Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />);
+                stars.push(<Star key={i} className="w-4 h-4 fill-primary text-primary" />);
             } else if (i === fullStars && hasHalfStar) {
                 stars.push(
                     <div key={i} className="relative w-4 h-4">
-                        <Star className="w-4 h-4 text-gray-300 absolute" />
+                        <Star className="w-4 h-4 text-muted absolute" />
                         <div className="overflow-hidden w-1/2">
-                            <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                            <Star className="w-4 h-4 fill-primary text-primary" />
                         </div>
                     </div>,
                 );
             } else {
-                stars.push(<Star key={i} className="w-4 h-4 text-gray-300" />);
+                stars.push(<Star key={i} className="w-4 h-4 text-muted" />);
             }
         }
         return stars;
     };
 
     return (
-        <Card className="w-full max-w-sm overflow-hidden hover:shadow-lg transition-shadow duration-300 group">
-            <div className="relative">
-                <div className="aspect-[2/3] overflow-hidden bg-gray-100">
-                    <img
-                        src={posterUrl || '/placeholder.svg'}
-                        alt={`${title} poster`}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                </div>
-                {isRewatch && (
-                    <Badge className="absolute top-2 right-2 bg-orange-500 hover:bg-orange-600">Rewatch</Badge>
-                )}
-                <Link
-                    href={letterboxdUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="absolute top-2 left-2 p-2 bg-black/50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-black/70"
-                >
-                    <ExternalLink className="w-4 h-4 text-white" />
-                </Link>
-            </div>
+        <Link href={letterboxdUrl} target="_blank" rel="noopener noreferrer" className="block">
+            <Card className="w-full max-w-sm overflow-hidden hover:shadow-lg transition-shadow duration-300 group cursor-pointer">
+                <div className="relative">
+                    <div className="aspect-[2/3] overflow-hidden bg-muted">
+                        <img
+                            src={posterUrl || '/placeholder.svg'}
+                            alt={`${title} poster`}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        {/* Annotations overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-3 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out">
+                                <h4 className="text-white font-semibold text-sm leading-tight line-clamp-2 [text-shadow:_0_2px_8px_rgb(0_0_0_/_80%)]">
+                                    {title}
+                                </h4>
+                                {description && (
+                                    <p className="text-white/95 text-xs mt-1 mb-2 line-clamp-3 italic [text-shadow:_0_1px_4px_rgb(0_0_0_/_60%)]">
+                                        "{description}"
+                                    </p>
+                                )}
 
-            <CardContent className="p-4 space-y-3">
-                <div>
-                    <h3 className="font-semibold text-lg leading-tight line-clamp-2">{title}</h3>
-                    <p className="text-sm text-muted-foreground">{year}</p>
-                </div>
-
-                <div className="flex items-center gap-2">
-                    <div className="flex items-center gap-1">{renderStars(rating)}</div>
-                    <span className="text-sm font-medium">{rating.toFixed(1)}</span>
-                </div>
-
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Calendar className="w-4 h-4" />
-                    <span>Watched {formatDate(watchedDate)}</span>
-                </div>
-
-                {description && (
-                    <div className="pt-2 border-t border-gray-100">
-                        <p className="text-sm text-gray-600 line-clamp-3 italic">"{description}"</p>
+                                <div className="flex items-center justify-between mt-1">
+                                    <div className="flex items-center gap-1.5">
+                                        <div className="flex items-center gap-1 bg-background/90 backdrop-blur-sm rounded-full px-1.5 py-0.5 border border-border/50">
+                                            <Star className="w-2.5 h-2.5 fill-primary text-primary" />
+                                            <span className="text-foreground text-xs font-medium">
+                                                {rating.toFixed(1)}
+                                            </span>
+                                        </div>
+                                        {isRewatch && (
+                                            <div className="bg-accent/90 backdrop-blur-sm rounded-full px-1.5 py-0.5 border border-border/50">
+                                                <span className="text-accent-foreground text-xs font-medium">
+                                                    Rewatch
+                                                </span>
+                                            </div>
+                                        )}
+                                    </div>
+                                    <div className="bg-background/90 backdrop-blur-sm rounded-full px-1.5 py-0.5 border border-border/50">
+                                        <span className="text-foreground text-xs font-medium">
+                                            {formatDate(watchedDate)}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                )}
-            </CardContent>
-        </Card>
+                </div>
+            </Card>
+        </Link>
     );
 }

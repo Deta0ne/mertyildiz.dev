@@ -23,17 +23,6 @@ export default async function LetterboxdGrid({ username = 'Aithra', limit = 50 }
 
     return (
         <>
-            {feedInfo && (
-                <div className="flex justify-end mb-6">
-                    <Button asChild variant="outline" size="sm">
-                        <a href={feedInfo.link} target="_blank" rel="noopener noreferrer">
-                            <ExternalLink className="w-4 h-4 mr-2" />
-                            View on Letterboxd
-                        </a>
-                    </Button>
-                </div>
-            )}
-
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
                 {films.map((film: ProcessedFilmLog, index: number) => (
                     <FilmCard
