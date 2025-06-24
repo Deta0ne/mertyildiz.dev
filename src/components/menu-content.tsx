@@ -19,7 +19,7 @@ export function MenuContent() {
                 <SidebarMenu>
                     <SidebarMenuItem>
                         <SidebarMenuButton asChild className="data-[slot=sidebar-menu-button]:!p-0">
-                            <a href="#" className="flex items-center gap-3 h-12">
+                            <a href="/" className="flex items-center gap-3 h-12">
                                 <Avatar className="h-10 w-10">
                                     <AvatarImage src="/avatar.jpg" alt="Mert Yıldız" />
                                     <AvatarFallback className="bg-primary text-primary-foreground text-sm">

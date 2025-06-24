@@ -35,7 +35,7 @@ export function NavMain({
         const handleKeyDown = (event: KeyboardEvent) => {
             if (event.key >= '1' && event.key <= '9') {
                 const item = items.find((item) => item.shortcut === event.key);
-                if (item) {
+                if (item && activePath !== item.url) {
                     event.preventDefault();
                     window.location.href = item.url;
                 }
@@ -44,7 +44,7 @@ export function NavMain({
 
         document.addEventListener('keydown', handleKeyDown);
         return () => document.removeEventListener('keydown', handleKeyDown);
-    }, [items]);
+    }, [items, activePath]);
 
     return (
         <SidebarGroup>
