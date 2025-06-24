@@ -5,6 +5,7 @@ import { RepositoryCard } from '@/components/github/repository-card';
 import { ActivityItem } from '@/components/github/activity-item';
 import { ErrorDisplay } from '@/components/github/error-display';
 import { GitHubLoading } from '@/components/github/github-loading';
+import { GitHubPageWrapper } from '@/components/github/github-page-wrapper';
 import type { Metadata } from 'next';
 
 export const revalidate = 600;
@@ -35,7 +36,7 @@ async function GitHubContent() {
         <div className="max-w-6xl mx-auto">
             <ProfileHeader user={user} />
 
-            <section className="space-y-6">
+            <section className="space-y-6 p-4" data-section="pinned">
                 <h2 className="text-2xl font-bold">Pinned Repositories 📌</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {pinnedRepositories.length > 0 ? (
@@ -48,7 +49,7 @@ async function GitHubContent() {
                 </div>
             </section>
 
-            <section className="space-y-6 mt-6">
+            <section className="space-y-6 mt-6 p-4" data-section="activity">
                 <h2 className="text-2xl font-bold">Recent Activity 🗓️</h2>
                 <div className="space-y-3">
                     {recentActivity.length > 0 ? (
@@ -66,8 +67,10 @@ async function GitHubContent() {
 
 export default function GitHubPage() {
     return (
-        <Suspense fallback={<GitHubLoading />}>
-            <GitHubContent />
-        </Suspense>
+        <GitHubPageWrapper>
+            <Suspense fallback={<GitHubLoading />}>
+                <GitHubContent />
+            </Suspense>
+        </GitHubPageWrapper>
     );
 }

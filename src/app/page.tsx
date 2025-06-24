@@ -1,4 +1,5 @@
 import { Timeline } from '@/components/ui/timeline';
+import { FloatingHeader } from '@/components/floating-header';
 import { Briefcase, GraduationCap, School, Heart } from 'lucide-react';
 
 const timelineData = [
@@ -43,24 +44,27 @@ const timelineData = [
 
 export default function Home() {
     return (
-        <div className="mx-auto w-full lg:mb-0 lg:max-w-3xl">
-            <div className="mx-auto w-full lg:mb-0 lg:max-w-3xl">
-                <h1 className="text-3xl font-bold mb-4">Hello 👋</h1>
-                <p>
-                    I’m Mert — a software engineer, cinephile, and gamer from Turkey. I graduated from the Software
-                    Engineering department of Gumushane University 👨🏻‍🎓
-                </p>
-                <p>
-                    I am focused on front-end development and have two years of practical experience, I am working at
-                    Priva Security as a Front-End Developer. I am an expert in modern front-end technologies and am
-                    currently expanding my full-stack expertise 👨🏻‍💻
-                </p>
-            </div>
+        <>
+            <FloatingHeader scrollTitle="Mert Yıldız" />
+            <div className="mx-auto w-full lg:mb-0 lg:max-w-3xl p-4">
+                <div className="mx-auto w-full lg:mb-0 lg:max-w-3xl">
+                    <h1 className="text-3xl font-bold mb-4">Hello 👋</h1>
+                    <p>
+                        I’m Mert — a software engineer, cinephile, and gamer from Turkey. I graduated from the Software
+                        Engineering department of Gumushane University 👨🏻‍🎓
+                    </p>
+                    <p>
+                        I am focused on front-end development and have two years of practical experience, I am working
+                        at Priva Security as a Front-End Developer. I am an expert in modern front-end technologies and
+                        am currently expanding my full-stack expertise 👨🏻‍💻
+                    </p>
+                </div>
 
-            <div className="mb-8">
-                <h2 className="text-2xl font-bold mb-6">Experience & Education 📚</h2>
-                <Timeline items={timelineData} />
+                <div className="mb-8">
+                    <h2 className="text-2xl font-bold mb-6">Experience & Education 📚</h2>
+                    <Timeline items={timelineData} />
+                </div>
             </div>
-        </div>
+        </>
     );
 }

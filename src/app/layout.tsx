@@ -4,7 +4,6 @@ import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
 import { ModeToggle } from '@/components/toggle-mode-button';
 import { AppSidebar } from '@/components/app-sidebar';
-import { MobileDrawer } from '@/components/mobile-drawer';
 import { SidebarProvider } from '@/components/ui/sidebar';
 
 const geist = Geist({
@@ -33,19 +32,14 @@ export default function RootLayout({
                         </div>
 
                         <main className="flex-1 bg-background" vaul-drawer-wrapper="">
-                            <div className="md:hidden fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
-                                <div className="flex justify-between items-center p-4">
-                                    <MobileDrawer />
-                                    <ModeToggle />
-                                </div>
-                            </div>
-
+                            {/* Desktop mode toggle - top right fixed */}
                             <div className="hidden md:block fixed top-4 right-4 z-50">
                                 <ModeToggle />
                             </div>
 
-                            <div className="pt-20 md:pt-16 flex flex-1 flex-col gap-4 p-4 transition-all duration-300 ease-in-out">
-                                <div className="animate-in fade-in slide-in-from-bottom-2 duration-500 ease-out">
+                            {/* Content area */}
+                            <div id="scroll-area" className="h-screen overflow-y-auto md:pt-16">
+                                <div className="flex flex-1 flex-col gap-4 transition-all duration-300 ease-in-out animate-in fade-in slide-in-from-bottom-2">
                                     {children}
                                 </div>
                             </div>
