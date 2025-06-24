@@ -49,6 +49,10 @@
     --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
     --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
     --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
+
+    /* Drawer Animasyonları */
+    --drawer-transition: cubic-bezier(0.32, 0.72, 0, 1);
+    --drawer-duration: 400ms;
 }
 
 .dark {
@@ -158,9 +162,14 @@
     }
     body {
         @apply bg-background text-foreground;
+        transition: background-color var(--drawer-duration) var(--drawer-transition);
     }
 
-    /* Custom paragraph styles */
+    /* VAUL benzeri background effect */
+    body.drawer-open {
+        background-color: black !important;
+    }
+
     p {
         font-family: var(--font-geist);
         font-size: 1rem;
@@ -172,7 +181,6 @@
         -webkit-font-smoothing: antialiased;
     }
 
-    /* Dark mode paragraph styles */
     .dark p {
         color: #f9fafb;
     }
@@ -192,4 +200,29 @@
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 3;
     }
+}
+
+/* VAUL benzeri scale sistemi */
+[vaul-drawer-wrapper] {
+    transform: scale(1);
+    transition: transform 500ms cubic-bezier(0.32, 0.72, 0, 1), border-radius 500ms cubic-bezier(0.32, 0.72, 0, 1);
+    will-change: transform, border-radius;
+    transform-origin: top center;
+}
+
+/* Drawer açıldığında - VAUL'un gerçek sistemi */
+[vaul-drawer-wrapper][data-vaul-drawer-visible] {
+    transform: scale(0.94);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.drawer-content {
+    transition: transform var(--drawer-duration) var(--drawer-transition);
+    will-change: transform;
+}
+
+.drawer-overlay {
+    transition: opacity 300ms ease-in-out;
+    will-change: opacity;
 }

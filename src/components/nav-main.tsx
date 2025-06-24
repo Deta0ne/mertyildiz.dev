@@ -33,7 +33,6 @@ export function NavMain({
 
     useEffect(() => {
         const handleKeyDown = (event: KeyboardEvent) => {
-            // Sadece number tuşları için
             if (event.key >= '1' && event.key <= '9') {
                 const item = items.find((item) => item.shortcut === event.key);
                 if (item) {
