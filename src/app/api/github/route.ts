@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { getGitHubProfile, fetchGitHubProfile } from '@/lib/github-service';
+import { NextResponse } from 'next/server';
+import { getGitHubProfile } from '@/lib/github-service';
 
 export const runtime = 'nodejs';
 export const revalidate = 600; // 10 minutes
@@ -8,12 +8,9 @@ export const revalidate = 600; // 10 minutes
  * GitHub API Route Handler
  * Simple endpoint for GitHub profile data
  */
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
-    const { searchParams } = new URL(request.url);
-    const refresh = searchParams.get('refresh') === 'true';
-
-    const data = refresh ? await fetchGitHubProfile() : await getGitHubProfile();
+    const data = await getGitHubProfile();
 
     return NextResponse.json(
       { success: true, data, timestamp: new Date().toISOString() },

@@ -22,7 +22,7 @@ export function RepositoryCard({ repo }: RepositoryCardProps) {
                     </Badge>
                 </div>
                 <a href={repo.url} target="_blank" rel="noopener noreferrer">
-                    <CardDescription className="text-sm line-clamp-2 hover:text-foreground transition-colors">
+                    <CardDescription className="text-sm line-clamp-2 italic">
                         {repo.description || 'No description available'}
                     </CardDescription>
                 </a>

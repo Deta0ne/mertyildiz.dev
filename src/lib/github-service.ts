@@ -1,6 +1,5 @@
 import { graphql } from '@octokit/graphql';
 
-// GitHub API types
 export interface GitHubUser {
   name: string;
   bio: string | null;
@@ -51,10 +50,9 @@ export interface GitHubProfileData {
 const GITHUB_USERNAME = 'Deta0ne';
 const GITHUB_API_TOKEN = process.env.GITHUB_ACCESS_TOKEN;
 
-// Cache for profile data
 let cachedData: GitHubProfileData | null = null;
 let cacheTimestamp: number = 0;
-const CACHE_DURATION = 10 * 60 * 1000; // 10 minutes
+const CACHE_DURATION = 10 * 60 * 1000;
 
 async function fetchGitHubActivity(): Promise<GitHubActivity[]> {
   if (!GITHUB_API_TOKEN) return [];
@@ -172,12 +170,10 @@ export async function fetchGitHubProfile(): Promise<GitHubProfileData> {
 export async function getGitHubProfile(): Promise<GitHubProfileData> {
   const now = Date.now();
   
-  // Return cached data if still valid
   if (cachedData && (now - cacheTimestamp) < CACHE_DURATION) {
     return cachedData;
   }
 
-  // Fetch fresh data
   const data = await fetchGitHubProfile();
   cachedData = data;
   cacheTimestamp = now;

@@ -1,6 +1,5 @@
-import { Button } from '@/components/ui/button';
-import { ExternalLink, Film } from 'lucide-react';
-import FilmCard from '@/components/film-card';
+import { Film } from 'lucide-react';
+import FilmCard from '@/components/letterboxd/film-card';
 import { getLetterboxdData, type ProcessedFilmLog } from '@/lib/letterboxd-service';
 
 interface LetterboxdGridProps {
@@ -59,7 +58,7 @@ function groupFilmsByMonth(films: ProcessedFilmLog[]): MonthGroup[] {
 }
 
 export default async function LetterboxdGrid({ username = 'Aithra', limit = 50 }: LetterboxdGridProps) {
-    const { data: films = [], feedInfo, success, error } = await getLetterboxdData(username, limit);
+    const { data: films = [], success, error } = await getLetterboxdData(username, limit);
 
     if (!success && error) {
         return (

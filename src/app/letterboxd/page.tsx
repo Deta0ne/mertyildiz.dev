@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
-import LetterboxdGrid from '@/components/letterboxd-grid';
-import LetterboxdGridSkeleton from '@/components/letterboxd-grid-skeleton';
+import LetterboxdGrid from '@/components/letterboxd/letterboxd-grid';
+import LetterboxdGridSkeleton from '@/components/letterboxd/letterboxd-grid-skeleton';
 import { Film } from 'lucide-react';
 
 export default function LetterboxdPage() {
