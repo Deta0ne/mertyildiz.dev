@@ -32,7 +32,7 @@ export function ProfileHeader({ user }: ProfileHeaderProps) {
                     <h1 className="text-3xl font-bold">{user.name}</h1>
                     <p className="text-muted-foreground text-lg">{user.bio || 'Frontend Developer'}</p>
 
-                    <div className="flex flex-col sm:flex-row items-center gap-4 text-sm text-muted-foreground">
+                    <div className="flex flex-col mb-4 sm:mb-0 gap-1 sm:flex-row items-center sm:gap-4 text-sm text-muted-foreground">
                         <span className="flex items-center gap-2">
                             <GitCommit className="w-4 h-4" />
                             <span>{user.contributionsCollection.totalCommitContributions} commits this year</span>
