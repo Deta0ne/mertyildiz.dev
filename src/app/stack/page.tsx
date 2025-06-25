@@ -34,11 +34,11 @@ export default async function StackPage() {
     return (
         <>
             <FloatingHeader scrollTitle="Stack & Tools" />
-            <div className="mx-auto w-full max-w-4xl p-4 space-y-4">
+            <div className="mx-auto w-full max-w-4xl p-4 pr-0 space-y-4">
                 {/* Header */}
-                <div className=" space-y-2">
-                    <h1 className="text-4xl font-bold">Tech Stack & Tools 🛠️</h1>
-                    <p className="text-muted-foreground text-lg max-w-2xl">
+                <div className="space-y-2">
+                    <h1 className="text-2xl sm:text-3xl font-bold break-words">Tech Stack & Tools 🛠️</h1>
+                    <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                         Technologies, frameworks, and tools I use to build amazing software experiences.
                     </p>
                 </div>
@@ -53,32 +53,34 @@ export default async function StackPage() {
 
                         return (
                             <div key={category.name} className="space-y-2">
-                                <div className="flex items-center gap-3 border-b border-border pb-1">
-                                    <CategoryIcon className={`h-5 w-5 ${category.color}`} />
-                                    <h2 className="text-xl font-semibold">{category.name}</h2>
+                                <div className="flex items-center gap-2 sm:gap-3 border-b border-border pb-1">
+                                    <CategoryIcon className={`h-4 w-4 sm:h-5 sm:w-5 ${category.color} flex-shrink-0`} />
+                                    <h2 className="text-lg sm:text-xl font-semibold break-words">{category.name}</h2>
                                 </div>
 
                                 <div className="space-y-0">
                                     {techs.map((tech) => {
                                         return (
-                                            <div key={tech._id} className="flex items-center justify-between py-1 px-2">
-                                                <div className="flex items-center gap-2 flex-1">
-                                                    <span className="font-medium">{tech.name}</span>
-                                                    {tech.isFavorite && (
-                                                        <Star className="h-3 w-3 text-primary fill-current" />
-                                                    )}
-                                                    {tech.isLearning && (
-                                                        <Badge
-                                                            variant="outline"
-                                                            className="text-xs px-1 py-0 h-4 border-green-500 text-green-600"
-                                                        >
-                                                            Learning
-                                                        </Badge>
-                                                    )}
-                                                    <span className="text-sm text-muted-foreground">
-                                                        — {tech.description}
-                                                    </span>
-                                                </div>
+                                            <div
+                                                key={tech._id}
+                                                className="mb-2 leading-[1.75] last:mb-0 px-1 sm:px-2 break-words"
+                                            >
+                                                <span className="font-medium text-sm sm:text-base">{tech.name}</span>
+                                                {tech.isFavorite && (
+                                                    <Star className="inline h-3 w-3 text-primary fill-current ml-1" />
+                                                )}
+                                                {tech.isLearning && (
+                                                    <Badge
+                                                        variant="outline"
+                                                        className="text-xs px-1 py-0 h-4 border-green-500 text-green-600 ml-1 inline-block"
+                                                    >
+                                                        Learning
+                                                    </Badge>
+                                                )}
+                                                {' — '}
+                                                <span className="text-xs sm:text-sm text-muted-foreground">
+                                                    {tech.description}
+                                                </span>
                                             </div>
                                         );
                                     })}
