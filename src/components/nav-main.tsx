@@ -9,7 +9,8 @@ import {
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
 import React, { useEffect, useState } from 'react';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
+import { useHotkeys } from 'react-hotkeys-hook';
 import Link from 'next/link';
 
 export function NavMain({
@@ -23,6 +24,7 @@ export function NavMain({
     }[];
 }) {
     const pathname = usePathname();
+    const router = useRouter();
     const [activePath, setActivePath] = useState<string>('');
     const [isClient, setIsClient] = useState(false);
 
@@ -31,20 +33,26 @@ export function NavMain({
         setActivePath(pathname);
     }, [pathname]);
 
-    useEffect(() => {
-        const handleKeyDown = (event: KeyboardEvent) => {
-            if (event.key >= '1' && event.key <= '9') {
-                const item = items.find((item) => item.shortcut === event.key);
-                if (item && activePath !== item.url) {
-                    event.preventDefault();
-                    window.location.href = item.url;
-                }
-            }
-        };
-
-        document.addEventListener('keydown', handleKeyDown);
-        return () => document.removeEventListener('keydown', handleKeyDown);
-    }, [items, activePath]);
+    // Setup keyboard shortcuts using react-hotkeys-hook
+    items.forEach((item) => {
+        if (item.shortcut) {
+            useHotkeys(
+                item.shortcut,
+                (event) => {
+                    if (activePath !== item.url) {
+                        event.preventDefault();
+                        router.push(item.url, { scroll: false });
+                    }
+                },
+                {
+                    enableOnFormTags: false, // Disable in forms for better UX
+                    preventDefault: true,
+                    enableOnContentEditable: false,
+                    ignoreModifiers: false,
+                },
+            );
+        }
+    });
 
     return (
         <SidebarGroup>
