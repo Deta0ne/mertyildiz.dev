@@ -1,4 +1,4 @@
-import { Home, User, Briefcase, Github, Linkedin, Twitter, Instagram, Film, Layers } from 'lucide-react';
+import { Home, User, Briefcase, Github, Linkedin, Twitter, Instagram, Film, Layers, FileText } from 'lucide-react';
 
 export const navigationData = {
     navMain: [
@@ -42,6 +42,16 @@ export const navigationData = {
             title: 'Instagram',
             url: 'https://www.instagram.com/merty.s/',
             icon: Instagram,
+        },
+        {
+            title: 'Letterboxd',
+            url: 'https://letterboxd.com/Aithra/',
+            icon: Film,
+        },
+        {
+            title: 'Resume',
+            url: 'https://conscious-slime-368.notion.site/Mert-Y-ld-z-21df9a5cd73c80bebe61e5e0c2815bb9',
+            icon: FileText,
         },
     ],
 }; 
