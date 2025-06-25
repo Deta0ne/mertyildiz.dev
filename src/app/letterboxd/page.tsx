@@ -11,10 +11,7 @@ export default function LetterboxdPage() {
             <div className="mx-auto w-full lg:mb-0 p-4">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between">
                     <div>
-                        <h1 className="text-3xl font-bold mb-2 flex items-center gap-3">
-                            <Film className="w-10 h-10 text-primary" />
-                            Recent Watches
-                        </h1>
+                        <h1 className="text-3xl font-bold mb-2 flex items-center gap-3">Recent Watches 🍿</h1>
                         <p className="text-muted-foreground">
                             My latest film activity from{' '}
                             <a

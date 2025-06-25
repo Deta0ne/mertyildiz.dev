@@ -1,4 +1,4 @@
-import { Home, User, Briefcase, Github, Linkedin, Twitter, Instagram, Film } from 'lucide-react';
+import { Home, User, Briefcase, Github, Linkedin, Twitter, Instagram, Film, Layers } from 'lucide-react';
 
 export const navigationData = {
     navMain: [
@@ -11,13 +11,13 @@ export const navigationData = {
         {
             title: 'Github',
             url: '/github',
-            icon: User,
+            icon: Github,
             shortcut: '2',
         },
         {
             title: 'Stack',
             url: '/stack',
-            icon: Briefcase,
+            icon: Layers,
             shortcut: '3',
         },
         {
@@ -37,11 +37,6 @@ export const navigationData = {
             title: 'LinkedIn',
             url: 'https://www.linkedin.com/in/mert-yildiz-60b519227',
             icon: Linkedin,
-        },
-        {
-            title: 'Twitter',
-            url: '#',
-            icon: Twitter,
         },
         {
             title: 'Instagram',
