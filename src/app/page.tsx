@@ -5,7 +5,6 @@ import { client } from '@/lib/sanity/client';
 import { TIMELINE_QUERY, PROFILE_QUERY } from '@/lib/sanity/queries';
 import { PortableTextRenderer } from '@/components/portable-text';
 
-// Icon mapping
 const iconMap = {
     graduation: GraduationCap,
     work: Briefcase,
@@ -14,10 +13,8 @@ const iconMap = {
 };
 
 export default async function Home() {
-    // Fetch data from Sanity
     const [timelineData, profileData] = await Promise.all([client.fetch(TIMELINE_QUERY), client.fetch(PROFILE_QUERY)]);
 
-    // Transform timeline data for Timeline component
     const transformedData = timelineData.map((item: any) => {
         const IconComponent = iconMap[item.icon as keyof typeof iconMap];
         return {
@@ -30,13 +27,8 @@ export default async function Home() {
         };
     });
 
-    // Fallback data if no profile data exists in Sanity
     const profile = profileData || {
         greeting: 'Hello 👋',
-        name: 'Mert',
-        title: 'software engineer',
-        interests: ['cinephile', 'gamer'],
-        location: 'Turkey',
         bio: [
             {
                 _type: 'block',

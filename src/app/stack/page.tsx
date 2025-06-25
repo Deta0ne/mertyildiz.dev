@@ -2,6 +2,7 @@ import { FloatingHeader } from '@/components/floating-header';
 import { Badge } from '@/components/ui/badge';
 import { Code2, Database, Palette, Wrench, Star, BookOpen, Monitor } from 'lucide-react';
 import { client } from '@/lib/sanity/client';
+import { TECH_STACK_QUERY } from '@/lib/sanity/queries';
 
 interface TechItem {
     _id: string;
@@ -28,20 +29,7 @@ function getTechsByCategory(techStack: TechItem[], category: string) {
 }
 
 export default async function StackPage() {
-    const techStackQuery = `
-      *[_type == "techStack"] | order(category asc, order asc) {
-        _id,
-        name,
-        category,
-        description,
-        isFavorite,
-        isLearning,
-        order,
-        "slug": slug.current
-      }
-    `;
-
-    const techStack: TechItem[] = await client.fetch(techStackQuery);
+    const techStack: TechItem[] = await client.fetch(TECH_STACK_QUERY);
 
     return (
         <>
