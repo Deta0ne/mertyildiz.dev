@@ -1,57 +1,18 @@
 import { FloatingHeader } from '@/components/floating-header';
 import { Badge } from '@/components/ui/badge';
 import { Code2, Database, Palette, Wrench, Star, BookOpen, Monitor } from 'lucide-react';
+import { client } from '@/lib/sanity/client';
 
 interface TechItem {
+    _id: string;
     name: string;
     category: string;
-    description?: string;
+    description: string;
     isLearning?: boolean;
     isFavorite?: boolean;
+    order?: number;
+    slug?: string;
 }
-
-const techStack: TechItem[] = [
-    // Frontend
-    { name: 'React', category: 'Frontend', description: 'Main framework for building UIs', isFavorite: true },
-    { name: 'Next.js', category: 'Frontend', description: 'Full-stack React framework', isFavorite: true },
-    { name: 'TypeScript', category: 'Frontend', description: 'Type-safe JavaScript' },
-    { name: 'Tailwind CSS', category: 'Frontend', description: 'Utility-first CSS framework', isFavorite: true },
-    { name: 'Shadcn UI', category: 'Frontend', description: 'Component library for building UIs' },
-    { name: 'Material UI', category: 'Frontend', description: 'Material Design components for React' },
-    { name: 'JavaScript', category: 'Frontend', description: 'Core programming language' },
-    { name: 'HTML/CSS', category: 'Frontend', description: 'Web fundamentals' },
-
-    // Backend
-    { name: 'Node.js', category: 'Backend', description: 'Server-side JavaScript runtime', isLearning: true },
-    {
-        name: 'Express.js',
-        category: 'Backend',
-        description: 'Web application framework',
-        isLearning: true,
-        isFavorite: true,
-    },
-    {
-        name: 'Supabase',
-        category: 'Backend',
-        description: 'Backend-as-a-Service platform with database and auth',
-        isFavorite: true,
-    },
-
-    // Tools & DevOps
-    { name: 'Git', category: 'Tools', description: 'Version control system', isFavorite: true },
-    { name: 'Vercel', category: 'Tools', description: 'Deployment platform' },
-
-    // Design
-    { name: 'Figma', category: 'Design', description: 'UI/UX design tool', isFavorite: true },
-
-    // Desktop & Productivity
-    { name: 'Raycast', category: 'Desktop', description: 'Spotlight alternative with powerful extensions' },
-    { name: 'AlDente', category: 'Desktop', description: 'Battery management for MacBooks' },
-    { name: 'Arc Browser', category: 'Desktop', description: 'Modern browser with workspaces' },
-    { name: 'Obsidian', category: 'Desktop', description: 'Note-taking and knowledge base' },
-    { name: 'Cloudflare', category: 'Desktop', description: 'DNS and CDN service' },
-    { name: 'IINA', category: 'Desktop', description: 'Video player for macOS' },
-];
 
 const categories = [
     { name: 'Frontend', icon: Code2, color: 'text-blue-500' },
@@ -62,11 +23,26 @@ const categories = [
     { name: 'Desktop', icon: Monitor, color: 'text-purple-500' },
 ];
 
-function getTechsByCategory(category: string) {
+function getTechsByCategory(techStack: TechItem[], category: string) {
     return techStack.filter((tech) => tech.category === category);
 }
 
-export default function StackPage() {
+export default async function StackPage() {
+    const techStackQuery = `
+      *[_type == "techStack"] | order(category asc, order asc) {
+        _id,
+        name,
+        category,
+        description,
+        isFavorite,
+        isLearning,
+        order,
+        "slug": slug.current
+      }
+    `;
+
+    const techStack: TechItem[] = await client.fetch(techStackQuery);
+
     return (
         <>
             <FloatingHeader scrollTitle="Stack & Tools" />
@@ -82,7 +58,7 @@ export default function StackPage() {
                 {/* Technology List */}
                 <div className="space-y-4">
                     {categories.map((category) => {
-                        const techs = getTechsByCategory(category.name);
+                        const techs = getTechsByCategory(techStack, category.name);
                         if (techs.length === 0) return null;
 
                         const CategoryIcon = category.icon;
@@ -97,10 +73,7 @@ export default function StackPage() {
                                 <div className="space-y-0">
                                     {techs.map((tech) => {
                                         return (
-                                            <div
-                                                key={tech.name}
-                                                className="flex items-center justify-between py-1 px-2"
-                                            >
+                                            <div key={tech._id} className="flex items-center justify-between py-1 px-2">
                                                 <div className="flex items-center gap-2 flex-1">
                                                     <span className="font-medium">{tech.name}</span>
                                                     {tech.isFavorite && (

@@ -21,7 +21,7 @@ export function MenuContent() {
                         <SidebarMenuButton asChild className="data-[slot=sidebar-menu-button]:!p-0">
                             <a href="/" className="flex items-center gap-3 h-12">
                                 <Avatar className="h-10 w-10">
-                                    <AvatarImage src="/avatar.jpg" alt="Mert Yıldız" />
+                                    <AvatarImage src="/asset/me.avif" alt="Mert Yıldız" loading="lazy" />
                                     <AvatarFallback className="bg-primary text-primary-foreground text-sm">
                                         MY
                                     </AvatarFallback>

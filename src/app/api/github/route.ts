@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { getGitHubProfile } from '@/lib/github-service';
 
 export const runtime = 'nodejs';
-export const revalidate = 600; // 10 minutes
+export const revalidate = 600; 
 
 /**
  * GitHub API Route Handler

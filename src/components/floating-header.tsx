@@ -63,7 +63,7 @@ export const FloatingHeader = memo(({ scrollTitle, title, goBackLink, children }
     const { icon, displayTitle } = getPageContent();
 
     return (
-        <header className="sticky inset-x-0 top-0 z-50 mx-auto flex h-14 w-full shrink-0 items-center overflow-hidden border-b bg-background/80 backdrop-blur-sm text-sm font-medium lg:hidden">
+        <header className="sticky inset-x-0 top-0 z-50 mx-auto flex h-14 w-full shrink-0 items-center overflow-hidden border-b bg-background/80 backdrop-blur-sm text-sm font-medium md:hidden">
             <div className="flex size-full items-center px-4">
                 <div className="flex w-full items-center justify-between gap-2">
                     <div className="flex flex-1 items-center gap-3">
