@@ -53,5 +53,10 @@ export const navigationData = {
             url: 'https://conscious-slime-368.notion.site/Mert-Y-ld-z-21df9a5cd73c80bebe61e5e0c2815bb9',
             icon: FileText,
         },
+        {
+            title: 'Mail',
+            url: 'mailto:cmertyldz@gmail.com',
+            icon: FileText,
+        },
     ],
 }; 

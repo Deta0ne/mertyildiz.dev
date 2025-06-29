@@ -5,6 +5,8 @@ import { client } from '@/lib/sanity/client';
 import { TIMELINE_QUERY, PROFILE_QUERY } from '@/lib/sanity/queries';
 import { PortableTextRenderer } from '@/components/portable-text';
 
+export const revalidate = 600;
+
 const iconMap = {
     graduation: GraduationCap,
     work: Briefcase,
