@@ -4,6 +4,8 @@ import { Code2, Database, Palette, Wrench, Star, BookOpen, Monitor } from 'lucid
 import { client } from '@/lib/sanity/client';
 import { TECH_STACK_QUERY } from '@/lib/sanity/queries';
 
+export const revalidate = 600;
+
 interface TechItem {
     _id: string;
     name: string;
