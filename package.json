@@ -24,6 +24,7 @@
     "@react-pdf-viewer/default-layout": "^3.12.0",
     "@sanity/image-url": "^1.1.0",
     "@sanity/vision": "^3.94.2",
+    "@vercel/analytics": "^1.5.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.522.0",

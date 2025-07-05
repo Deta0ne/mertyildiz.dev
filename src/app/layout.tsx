@@ -5,6 +5,7 @@ import { ThemeProvider } from '@/components/theme-provider';
 import { ModeToggle } from '@/components/toggle-mode-button';
 import { AppSidebar } from '@/components/app-sidebar';
 import { SidebarProvider } from '@/components/ui/sidebar';
+import { Analytics } from '@vercel/analytics/next';
 
 const geist = Geist({
     subsets: ['latin'],
@@ -46,6 +47,7 @@ export default function RootLayout({
                         </main>
                     </SidebarProvider>
                 </ThemeProvider>
+                <Analytics />
             </body>
         </html>
     );
