@@ -132,7 +132,7 @@ class LetterboxdProcessor {
 }
 
 let cache: { data: ProcessedFilmLog[]; timestamp: number; feedInfo: any } | null = null;
-const CACHE_DURATION = 10 * 60 * 1000;
+const CACHE_DURATION = 60 * 60 * 24000;
 
 export async function getLetterboxdData(
   username: string = 'Aithra', 
