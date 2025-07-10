@@ -53,13 +53,13 @@ export default function FilmCard({
                                 <h4 className="text-white font-semibold text-sm leading-tight line-clamp-2 [text-shadow:_0_2px_8px_rgb(0_0_0_/_80%)]">
                                     {title}
                                 </h4>
-                                {description && (
+                                {/* {description && (
                                     <p className="text-white/95 text-xs mt-1 mb-2 line-clamp-3 italic [text-shadow:_0_1px_4px_rgb(0_0_0_/_60%)]">
                                         "{description}"
                                     </p>
-                                )}
+                                )} */}
 
-                                <div className="flex items-center justify-between mt-1">
+                                <div className="flex items-center justify-between mt-2">
                                     <div className="flex items-center gap-1.5">
                                         <div className="flex items-center gap-1 bg-background/90 backdrop-blur-sm rounded-full px-1.5 py-0.5 border border-border/50">
                                             <Star className="w-2.5 h-2.5 fill-primary text-primary" />

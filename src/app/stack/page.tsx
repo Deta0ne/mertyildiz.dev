@@ -69,12 +69,12 @@ export default async function StackPage() {
                                             >
                                                 <span className="font-medium text-sm sm:text-base">{tech.name}</span>
                                                 {tech.isFavorite && (
-                                                    <Star className="inline h-3 w-3 text-primary fill-current ml-1" />
+                                                    <Star className="inline h-3 w-3 text-primary fill-current ml-1 align-middle" />
                                                 )}
                                                 {tech.isLearning && (
                                                     <Badge
                                                         variant="outline"
-                                                        className="text-xs px-1 py-0 h-4 border-green-500 text-green-600 ml-1 inline-block"
+                                                        className="text-xs px-1 py-0 h-4 border-green-500 text-green-600 ml-1 inline-block align-middle"
                                                     >
                                                         Learning
                                                     </Badge>
