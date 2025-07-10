@@ -1,5 +1,5 @@
 import { isValidSignature, SIGNATURE_HEADER_NAME } from '@sanity/webhook'
-import { revalidatePath } from 'next/cache'
+import { revalidatePath, revalidateTag } from 'next/cache'
 import { NextRequest, NextResponse } from 'next/server'
 
 const secret = process.env.SANITY_REVALIDATE_SECRET
@@ -33,21 +33,44 @@ export async function POST(req: NextRequest) {
     const jsonBody = JSON.parse(body)
     const { _type, slug, _id } = jsonBody
 
+    revalidateTag('sanity');
+
+    const revalidatedPaths: string[] = []
+
     switch (_type) {
       case 'profile':
         revalidatePath('/')
+        revalidatedPaths.push('/')
         break
 
       case 'timeline':
         revalidatePath('/')
+        revalidatedPaths.push('/')
         break
 
       case 'techStack':
         revalidatePath('/stack')
+        revalidatePath('/') 
+        revalidatedPaths.push('/stack', '/')
+        break
+
+      case 'post':
+      case 'blogPost':
+        if (slug?.current) {
+          revalidatePath(`/blog/${slug.current}`)
+          revalidatePath('/blog')
+          revalidatePath('/')
+          revalidatedPaths.push(`/blog/${slug.current}`, '/blog', '/')
+        } else {
+          revalidatePath('/blog')
+          revalidatePath('/')
+          revalidatedPaths.push('/blog', '/')
+        }
         break
 
       default:
         revalidatePath('/')
+        revalidatedPaths.push('/')
         break
     }
 
@@ -57,7 +80,9 @@ export async function POST(req: NextRequest) {
       timestamp: new Date().toISOString(),
       type: _type,
       slug: slug?.current || null,
-      id: _id
+      id: _id,
+      revalidatedPaths,
+      cacheStrategy: 'SSR + HTTP Cache + Webhook Revalidation'
     })
 
   } catch (error) {
@@ -65,7 +90,8 @@ export async function POST(req: NextRequest) {
       { 
         success: false,
         message: 'Webhook processing failed', 
-        error: error instanceof Error ? error.message : 'Unknown error' 
+        error: error instanceof Error ? error.message : 'Unknown error',
+        timestamp: new Date().toISOString()
       },
       { status: 500 }
     )
