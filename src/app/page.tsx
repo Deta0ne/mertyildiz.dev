@@ -12,10 +12,20 @@ const iconMap = {
     heart: Heart,
 };
 
+interface TimelineItem {
+    _id: string;
+    date: string;
+    description: string;
+    icon: string;
+    isActive: boolean;
+    order: number;
+    title: string;
+}
+
 export default async function Home() {
     const [timelineData, profileData] = await Promise.all([client.fetch(TIMELINE_QUERY), client.fetch(PROFILE_QUERY)]);
 
-    const transformedData = timelineData.map((item: any) => {
+    const transformedData = timelineData.map((item: TimelineItem) => {
         const IconComponent = iconMap[item.icon as keyof typeof iconMap];
         return {
             id: item._id,

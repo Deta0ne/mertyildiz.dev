@@ -1,4 +1,4 @@
-import { Home, User, Briefcase, Github, Linkedin, Twitter, Instagram, Film, Layers, FileText } from 'lucide-react';
+import { Home, Github, Linkedin, Instagram, Film, Layers, FileText } from 'lucide-react';
 
 export const navigationData = {
     navMain: [
