@@ -68,7 +68,7 @@ export function RepositoryCard({ repo }: RepositoryCardProps) {
                             href={repo.homepageUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 text-xs text-green-600 hover:text-green-700 font-medium"
+                            className="inline-flex items-center gap-1 text-xs text-green-700 hover:text-green-800 font-medium"
                         >
                             <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
                             <span>Live</span>

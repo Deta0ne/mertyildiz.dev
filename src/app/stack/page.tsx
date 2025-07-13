@@ -72,7 +72,7 @@ export default async function StackPage() {
                                                 {tech.isLearning && (
                                                     <Badge
                                                         variant="outline"
-                                                        className="text-xs px-1 py-0 h-4 border-green-500 text-green-600 ml-1 inline-block align-middle"
+                                                        className="text-xs px-1 py-0 h-4 border-green-500 text-green-700 ml-1 inline-block align-middle"
                                                     >
                                                         Learning
                                                     </Badge>
