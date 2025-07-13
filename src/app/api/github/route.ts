@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { getGitHubProfile } from '@/lib/github-service';
 
 export const runtime = 'nodejs';
-export const revalidate = 600; 
+export const revalidate = 3600; 
 
 /**
  * GitHub API Route Handler
@@ -17,7 +17,7 @@ export async function GET() {
       {
         status: 200,
         headers: {
-          'Cache-Control': 'public, s-maxage=600, stale-while-revalidate=1800',
+          'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=3600',
           'Content-Type': 'application/json',
         }
       }

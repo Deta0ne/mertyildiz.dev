@@ -52,7 +52,7 @@ const GITHUB_API_TOKEN = process.env.GITHUB_ACCESS_TOKEN;
 
 let cachedData: GitHubProfileData | null = null;
 let cacheTimestamp: number = 0;
-const CACHE_DURATION = 10 * 60 * 1000;
+const CACHE_DURATION = 3600;
 
 async function fetchGitHubActivity(): Promise<GitHubActivity[]> {
   if (!GITHUB_API_TOKEN) return [];

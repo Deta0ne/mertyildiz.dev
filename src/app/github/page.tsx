@@ -8,7 +8,7 @@ import { GitHubLoading } from '@/components/github/github-loading';
 import { GitHubPageWrapper } from '@/components/github/github-page-wrapper';
 import type { Metadata } from 'next';
 
-export const revalidate = 600;
+export const revalidate = 3600;
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {

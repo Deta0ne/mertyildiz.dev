@@ -2,7 +2,9 @@ import { Suspense } from 'react';
 import LetterboxdGrid from '@/components/letterboxd/letterboxd-grid';
 import LetterboxdGridSkeleton from '@/components/letterboxd/letterboxd-grid-skeleton';
 import { FloatingHeader } from '@/components/floating-header';
-import { Film } from 'lucide-react';
+
+export const revalidate = 86400;
+export const dynamic = 'force-dynamic';
 
 export default function LetterboxdPage() {
     return (
