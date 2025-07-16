@@ -1,6 +1,6 @@
 import { FloatingHeader } from '@/components/floating-header';
 import { Badge } from '@/components/ui/badge';
-import { Code2, Database, Palette, Wrench, Star, BookOpen, Monitor } from 'lucide-react';
+import { Code2, Database, Palette, Wrench, Star, Monitor } from 'lucide-react';
 import { client } from '@/lib/sanity/client';
 import { TECH_STACK_QUERY } from '@/lib/sanity/queries';
 
@@ -72,7 +72,7 @@ export default async function StackPage() {
                                                 {tech.isLearning && (
                                                     <Badge
                                                         variant="outline"
-                                                        className="text-xs px-1 py-0 h-4 border-green-500 text-green-600 ml-1 inline-block align-middle"
+                                                        className="text-xs px-1 py-0 h-4 border-green-500 text-green-700 ml-1 inline-block align-middle"
                                                     >
                                                         Learning
                                                     </Badge>

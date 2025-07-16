@@ -54,19 +54,19 @@ export async function POST(req: NextRequest) {
         revalidatedPaths.push('/stack', '/')
         break
 
-      case 'post':
-      case 'blogPost':
-        if (slug?.current) {
-          revalidatePath(`/blog/${slug.current}`)
-          revalidatePath('/blog')
-          revalidatePath('/')
-          revalidatedPaths.push(`/blog/${slug.current}`, '/blog', '/')
-        } else {
-          revalidatePath('/blog')
-          revalidatePath('/')
-          revalidatedPaths.push('/blog', '/')
-        }
-        break
+      // case 'post': 
+      // case 'blogPost':
+      //   if (slug?.current) {
+      //     revalidatePath(`/blog/${slug.current}`)
+      //     revalidatePath('/blog')
+      //     revalidatePath('/')
+      //     revalidatedPaths.push(`/blog/${slug.current}`, '/blog', '/')
+      //   } else {
+      //     revalidatePath('/blog')
+      //     revalidatePath('/')
+      //     revalidatedPaths.push('/blog', '/')
+      //   }
+      //   break
 
       default:
         revalidatePath('/')
