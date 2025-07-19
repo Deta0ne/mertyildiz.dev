@@ -6,15 +6,12 @@ import { ActivityItem } from '@/components/github/activity-item';
 import { ErrorDisplay } from '@/components/github/error-display';
 import { GitHubLoading } from '@/components/github/github-loading';
 import { GitHubPageWrapper } from '@/components/github/github-page-wrapper';
-import type { Metadata } from 'next';
+import { createGitHubMetadata } from '@/lib/metadata-utils';
 
 export const revalidate = 3600;
 export const dynamic = 'force-static';
 
-export const metadata: Metadata = {
-    title: 'GitHub Profile - Mert Yıldız',
-    description: 'My GitHub repositories and contributions.',
-};
+export const metadata = createGitHubMetadata();
 
 async function GitHubContent() {
     let profileData: GitHubProfileData | null = null;

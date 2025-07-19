@@ -1,5 +1,8 @@
 import { Timeline } from '@/components/ui/timeline';
 import { FloatingHeader } from '@/components/floating-header';
+import { createHomeMetadata } from '@/lib/metadata-utils';
+
+export const metadata = createHomeMetadata();
 import { Briefcase, GraduationCap, School, Heart } from 'lucide-react';
 import { client } from '@/lib/sanity/client';
 import { TIMELINE_QUERY, PROFILE_QUERY } from '@/lib/sanity/queries';
