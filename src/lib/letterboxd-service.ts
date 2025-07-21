@@ -168,7 +168,6 @@ export async function getLetterboxdData(
     });
 
     const rssUrl = `https://letterboxd.com/${username}/rss/`;
-    console.log(`Fetching Letterboxd RSS for user: ${username}`);
 
     const feed = await parser.parseURL(rssUrl) as LetterboxdFeed;
 

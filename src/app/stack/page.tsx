@@ -1,4 +1,7 @@
 import { FloatingHeader } from '@/components/floating-header';
+import { createStackMetadata } from '@/lib/metadata-utils';
+
+export const metadata = createStackMetadata();
 import { Badge } from '@/components/ui/badge';
 import { Code2, Database, Palette, Wrench, Star, Monitor } from 'lucide-react';
 import { client } from '@/lib/sanity/client';
