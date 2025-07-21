@@ -40,7 +40,6 @@ export default function RootLayout({
                         <div className="hidden md:block">
                             <AppSidebar />
                         </div>
-
                         <main className="flex-1 bg-background" vaul-drawer-wrapper="">
                             {/* Desktop mode toggle - top right fixed */}
                             <div className="hidden md:block fixed top-4 right-4 z-50">
