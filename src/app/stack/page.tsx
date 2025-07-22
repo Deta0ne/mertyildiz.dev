@@ -1,5 +1,6 @@
 import { FloatingHeader } from '@/components/floating-header';
 import { createStackMetadata } from '@/lib/metadata-utils';
+import { TechStackBg } from '@/components/ui/background';
 
 export const metadata = createStackMetadata();
 import { Badge } from '@/components/ui/badge';
@@ -36,6 +37,7 @@ export default async function StackPage() {
 
     return (
         <>
+            <TechStackBg />
             <FloatingHeader scrollTitle="Stack & Tools" />
             <div className="mx-auto w-full max-w-4xl p-4 pr-0 space-y-4">
                 {/* Header */}

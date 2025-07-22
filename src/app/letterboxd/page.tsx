@@ -3,6 +3,7 @@ import LetterboxdGrid from '@/components/letterboxd/letterboxd-grid';
 import LetterboxdGridSkeleton from '@/components/letterboxd/letterboxd-grid-skeleton';
 import { FloatingHeader } from '@/components/floating-header';
 import { createLetterboxdMetadata } from '@/lib/metadata-utils';
+import { CinemaThemedBg } from '@/components/ui/background';
 
 export const revalidate = 86400;
 export const dynamic = 'force-dynamic';
@@ -12,6 +13,7 @@ export const metadata = createLetterboxdMetadata();
 export default function LetterboxdPage() {
     return (
         <>
+            <CinemaThemedBg />
             <FloatingHeader scrollTitle="Recent Watches" />
             <div className="mx-auto w-full lg:mb-0 p-4">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between">
