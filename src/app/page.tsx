@@ -66,7 +66,7 @@ export default async function Home() {
     };
 
     return (
-        <div className="relative min-h-screen">
+        <>
             <MinimalGradientBg />
             <FloatingHeader scrollTitle="Mert Yıldız" />
             <div className="mx-auto w-full lg:mb-0 lg:max-w-3xl p-4 relative">
@@ -82,6 +82,6 @@ export default async function Home() {
                     <Timeline items={transformedData} />
                 </div>
             </div>
-        </div>
+        </>
     );
 }
