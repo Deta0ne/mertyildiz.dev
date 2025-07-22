@@ -1,6 +1,7 @@
 import { Timeline } from '@/components/ui/timeline';
 import { FloatingHeader } from '@/components/floating-header';
 import { createHomeMetadata } from '@/lib/metadata-utils';
+import { MinimalGradientBg } from '@/components/ui/background';
 
 export const metadata = createHomeMetadata();
 import { Briefcase, GraduationCap, School, Heart } from 'lucide-react';
@@ -65,9 +66,10 @@ export default async function Home() {
     };
 
     return (
-        <>
+        <div className="relative min-h-screen">
+            <MinimalGradientBg />
             <FloatingHeader scrollTitle="Mert Yıldız" />
-            <div className="mx-auto w-full lg:mb-0 lg:max-w-3xl p-4">
+            <div className="mx-auto w-full lg:mb-0 lg:max-w-3xl p-4 relative">
                 <div className="mx-auto w-full lg:mb-0 lg:max-w-3xl">
                     <h1 className="text-3xl font-bold mb-4">{profile.greeting}</h1>
                     <div className="space-y-4">
@@ -80,6 +82,6 @@ export default async function Home() {
                     <Timeline items={transformedData} />
                 </div>
             </div>
-        </>
+        </div>
     );
 }

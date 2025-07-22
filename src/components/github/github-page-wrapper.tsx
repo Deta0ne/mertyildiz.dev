@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { FloatingHeader } from '@/components/floating-header';
+import { GitHubThemedBg } from '@/components/ui/background';
 
 interface GitHubPageWrapperProps {
     children: React.ReactNode;
@@ -39,6 +40,7 @@ export function GitHubPageWrapper({ children }: GitHubPageWrapperProps) {
 
     return (
         <>
+            <GitHubThemedBg />
             <FloatingHeader scrollTitle={currentSection} />
             {children}
         </>
