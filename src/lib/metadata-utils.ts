@@ -38,7 +38,7 @@ export function createMetadata(options: MetadataOptions = {}): Metadata {
       url: canonicalUrl || siteConfig.url,
       siteName: siteConfig.name,
       images,
-      locale: 'en_US',
+      locale: 'tr_TR',
       type: 'website',
     },
     
@@ -89,7 +89,7 @@ export function createHomeMetadata(): Metadata {
 
 export function createGitHubMetadata(): Metadata {
   return createMetadata({
-    title: siteConfig.title.default,
+    title: siteConfig.pages.github.title,
     description: siteConfig.pages.github.description,
     keywords: [...siteConfig.keywords, ...siteConfig.pages.github.keywords],
     canonicalUrl: `${siteConfig.url}/github`,
@@ -98,7 +98,7 @@ export function createGitHubMetadata(): Metadata {
 
 export function createLetterboxdMetadata(): Metadata {
   return createMetadata({
-    title: siteConfig.title.default,
+    title: siteConfig.pages.letterboxd.title,
     description: siteConfig.pages.letterboxd.description,
     keywords: [...siteConfig.keywords, ...siteConfig.pages.letterboxd.keywords],
     canonicalUrl: `${siteConfig.url}/letterboxd`,
@@ -107,7 +107,7 @@ export function createLetterboxdMetadata(): Metadata {
 
 export function createStackMetadata(): Metadata {
   return createMetadata({
-    title: siteConfig.title.default,
+    title: siteConfig.pages.stack.title,
     description: siteConfig.pages.stack.description,
     keywords: [...siteConfig.keywords, ...siteConfig.pages.stack.keywords],
     canonicalUrl: `${siteConfig.url}/stack`,
