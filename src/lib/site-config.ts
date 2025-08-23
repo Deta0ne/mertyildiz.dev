@@ -1,22 +1,20 @@
 export const siteConfig = {
   name: 'Mert Yıldız',
   title: {
-    default: 'Mert Yıldız - Software Engineer',
+    default: 'Mert Yıldız - Software Engineer | Frontend Developer',
     template: '%s | Mert Yıldız',
   },
   description: 'I\'m Mert --a software engineer, cinephile and gamer from Turkey. I graduated from the Software Engineering department of Gumushane University',
   url: 'https://mertyildiz.dev',
-  locale: 'en_US',
-  ogImage: 'https://mertyildiz.dev/og-image.jpg',
+  locale: 'tr_TR',
+  ogImage: 'https://mertyildiz.dev/asset/me.avif',
   creator: 'Mert Yıldız',
   keywords: [
     'mert yıldız',
+    'mert yildiz',
+    'mert yıldız developer',
     'mertyildiz.dev',
     'software engineer',
-    'frontend developer',
-    'web developer',
-    'nextjs developer',
-    'react developer',
   ],
   authors: [
     {
