@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# mertyildiz.dev
 
-## Getting Started
+A modern personal portfolio website built with Next.js, showcasing my work as a software engineer.
 
-First, run the development server:
+## 🛠️ Tech Stack
+
+- **Framework:** Next.js 14 (App Router)
+- **Styling:** Tailwind CSS + shadcn/ui
+- **Content:** Sanity CMS
+- **Icons:** Lucide React
+- **Deployment:** Vercel
+- **Analytics:** Vercel Analytics
+
+## 📄 Pages
+
+- **Home** - Introduction and timeline
+- **GitHub** - Open source projects and contributions
+- **Letterboxd** - Recent film activity and reviews
+- **Stack** - Technologies and tools I use
+
+## 🏃‍♂️ Getting Started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
+# Clone the repository
+git clone https://github.com/Deta0ne/mertyildiz.dev.git
+
+# Install dependencies
+bun install
+
+# Run development server
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🔧 Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create a `.env.local` file:
 
-## Learn More
+```env
+GITHUB_ACCESS_TOKEN=your_github_access_token
+NEXT_PUBLIC_SANITY_PROJECT_ID=v5x4biqx
+NEXT_PUBLIC_SANITY_DATASET=production
+SANITY_REVALIDATE_SECRET=sanity_webhook_secret
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 📱 Contact
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Website:** [mertyildiz.dev](https://mertyildiz.dev)
+- **GitHub:** [@Deta0ne](https://github.com/Deta0ne)
+- **LinkedIn:** [Mert Yıldız](https://www.linkedin.com/in/mert-yildiz-60b519227)
+- **Email:** cmertyldz@gmail.com
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 💡 Inspiration
 
-## Deploy on Vercel
+This project was inspired by [onur.dev](https://onur.dev) - an amazing portfolio design that showcases clean, modern web development.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📝 License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Feel free to use this code as inspiration for your own projects. Please don't copy it directly, but rather learn from it and create your own unique version.
+
+---
+
+Built with ❤️ by [Mert Yıldız](https://mertyildiz.dev)
