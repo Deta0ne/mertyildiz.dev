@@ -3,7 +3,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 
 export function GitHubLoading() {
     return (
-        <div className="max-w-6xl mx-auto space-y-12">
+        <div className="max-w-6xl mx-auto space-y-12 pt-16">
             {/* Profile Header Skeleton */}
             <div className="text-center space-y-6">
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-6">

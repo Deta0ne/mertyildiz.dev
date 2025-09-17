@@ -39,10 +39,9 @@ export function GitHubPageWrapper({ children }: GitHubPageWrapperProps) {
     }, []);
 
     return (
-        <>
-            <GitHubThemedBg />
+        <GitHubThemedBg>
             <FloatingHeader scrollTitle={currentSection} />
             {children}
-        </>
+        </GitHubThemedBg>
     );
 }
