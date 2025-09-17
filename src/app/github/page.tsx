@@ -30,7 +30,7 @@ async function GitHubContent() {
     const { user, pinnedRepositories, recentActivity } = profileData;
 
     return (
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto pt-16">
             <ProfileHeader user={user} />
 
             <section className="space-y-6 p-4" data-section="pinned">

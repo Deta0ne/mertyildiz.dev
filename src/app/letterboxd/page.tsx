@@ -15,7 +15,7 @@ export default function LetterboxdPage() {
         <>
             <CinemaThemedBg />
             <FloatingHeader scrollTitle="Recent Watches" />
-            <div className="mx-auto w-full lg:mb-0 p-4">
+            <div className="mx-auto w-full lg:mb-0 p-4 pt-16">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between">
                     <div>
                         <h1 className="text-3xl font-bold mb-2 flex items-center gap-3">Recent Watches 🍿</h1>

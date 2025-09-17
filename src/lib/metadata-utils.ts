@@ -33,7 +33,7 @@ export function createMetadata(options: MetadataOptions = {}): Metadata {
     metadataBase: new URL(siteConfig.url),
     
     openGraph: {
-      title,
+      title:"Mert Yıldız - Software Engineer Profile Picture",
       description,
       url: canonicalUrl || siteConfig.url,
       siteName: siteConfig.name,
@@ -67,8 +67,6 @@ export function createMetadata(options: MetadataOptions = {}): Metadata {
         canonical: canonicalUrl,
       },
     }),
-    
-    category: 'technology',
     
     other: {
       'google': 'notranslate',

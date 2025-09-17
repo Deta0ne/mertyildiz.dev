@@ -46,7 +46,7 @@ export default function RootLayout({
                             </div>
 
                             {/* Content area */}
-                            <div id="scroll-area" className="h-screen overflow-y-auto md:pt-16">
+                            <div id="scroll-area" className="h-screen overflow-y-auto ">
                                 <div className="flex flex-1 flex-col gap-4 transition-all duration-300 ease-in-out animate-in fade-in slide-in-from-bottom-2">
                                     {children}
                                 </div>
