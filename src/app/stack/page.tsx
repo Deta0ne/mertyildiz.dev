@@ -36,10 +36,9 @@ export default async function StackPage() {
     const techStack: TechItem[] = await client.fetch(TECH_STACK_QUERY);
 
     return (
-        <>
-            <TechStackBg />
+        <TechStackBg>
             <FloatingHeader scrollTitle="Stack & Tools" />
-            <div className="mx-auto w-full max-w-4xl p-4 pr-0 space-y-4">
+            <div className="mx-auto w-full max-w-4xl p-4 pt-16 pr-0 space-y-4">
                 {/* Header */}
                 <div className="space-y-2">
                     <h1 className="text-2xl sm:text-3xl font-bold break-words">Tech Stack & Tools 🛠️</h1>
@@ -95,6 +94,6 @@ export default async function StackPage() {
                     })}
                 </div>
             </div>
-        </>
+        </TechStackBg>
     );
 }
