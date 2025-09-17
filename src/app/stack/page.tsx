@@ -57,7 +57,7 @@ export default async function StackPage() {
 
                         return (
                             <div key={category.name} className="space-y-2">
-                                <div className="flex items-center gap-2 sm:gap-3 border-b border-border pb-1">
+                                <div className="flex items-center gap-2 sm:gap-3 pb-1">
                                     <CategoryIcon className={`h-4 w-4 sm:h-5 sm:w-5 ${category.color} flex-shrink-0`} />
                                     <h2 className="text-lg sm:text-xl font-semibold break-words">{category.name}</h2>
                                 </div>

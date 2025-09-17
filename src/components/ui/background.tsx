@@ -94,7 +94,14 @@ export const TechStackBg = ({ children }: { children: React.ReactNode }) => (
 
 export const CinemaThemedBg = () => (
     <div className="fixed inset-0 -z-10 overflow-hidden">
-        <div className="absolute inset-0 bg-orange-50/20 dark:bg-background" />
-        <div className="absolute inset-0 bg-transparent dark:bg-orange-950/10" />
+        <div
+            className="absolute inset-0 z-0"
+            style={{
+                backgroundImage: `
+               radial-gradient(circle at 20% 80%, rgba(255, 220, 190, 0.3) 0%, transparent 50%),
+               radial-gradient(circle at 80% 20%, rgba(255, 245, 238, 0.35) 0%, transparent 50%),
+               radial-gradient(circle at 40% 40%, rgba(255, 210, 180, 0.15) 0%, transparent 50%)`,
+            }}
+        />
     </div>
 );

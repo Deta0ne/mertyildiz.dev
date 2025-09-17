@@ -69,7 +69,7 @@ export default async function Home() {
         <>
             <MinimalGradientBg />
             <FloatingHeader scrollTitle="Mert Yıldız" />
-            <div className="mx-auto w-full lg:mb-0 lg:max-w-3xl p-4 relative">
+            <div className="mx-auto w-full lg:mb-0 lg:max-w-3xl p-4 relative pt-16">
                 <div className="mx-auto w-full lg:mb-0 lg:max-w-3xl">
                     <h1 className="text-3xl font-bold mb-4">{profile.greeting}</h1>
                     <div className="space-y-4">
