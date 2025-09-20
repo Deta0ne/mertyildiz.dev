@@ -33,7 +33,6 @@ export function NavMain({
         setActivePath(pathname);
     }, [pathname]);
 
-    // Setup keyboard shortcuts using react-hotkeys-hook
     items.forEach((item) => {
         if (item.shortcut) {
             useHotkeys(
@@ -45,7 +44,7 @@ export function NavMain({
                     }
                 },
                 {
-                    enableOnFormTags: false, // Disable in forms for better UX
+                    enableOnFormTags: false,
                     preventDefault: true,
                     enableOnContentEditable: false,
                     ignoreModifiers: false,

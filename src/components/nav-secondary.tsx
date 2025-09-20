@@ -8,26 +8,30 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
+import { useSiteData } from '@/context/site-data-context';
 
-export function NavSecondary({
-    items,
-}: {
-    items: {
-        title: string;
-        url: string;
-        icon?: any;
-    }[];
-}) {
+export function NavSecondary() {
+    const { socialLinks } = useSiteData();
     return (
         <SidebarGroup>
             <SidebarGroupLabel>Social</SidebarGroupLabel>
             <SidebarGroupContent>
                 <SidebarMenu>
-                    {items.map((item) => (
+                    {socialLinks.map((item) => (
                         <SidebarMenuItem key={item.title}>
                             <SidebarMenuButton asChild>
-                                <a href={item.url} target="_blank" rel="noopener noreferrer">
-                                    {item.icon && <item.icon className="h-4 w-4" />}
+                                <a
+                                    href={item.title === 'Mail' ? `mailto:cmertyldz@gmail.com` : item.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-1"
+                                >
+                                    {item.iconSvg && (
+                                        <div
+                                            className="h-4 w-4 [&>svg]:h-full [&>svg]:w-full [&>svg]:fill-current text-muted-foreground"
+                                            dangerouslySetInnerHTML={{ __html: item.iconSvg }}
+                                        />
+                                    )}
                                     <span>{item.title}</span>
                                 </a>
                             </SidebarMenuButton>

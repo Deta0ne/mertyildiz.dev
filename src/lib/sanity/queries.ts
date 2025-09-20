@@ -1,5 +1,14 @@
 import { defineQuery } from "next-sanity";
 
+export interface SocialLink {
+  _id: string;
+  title: string;
+  url: string;
+  iconSvg: string;
+  order: number;
+  isActive: boolean;
+}
+
 export const TIMELINE_QUERY = defineQuery(`
   *[_type == "timeline"] | order(order asc) {
     _id,
@@ -30,5 +39,16 @@ export const PROFILE_QUERY = defineQuery(`
     _id,
     greeting,
     bio
+  }
+`);
+
+export const SOCIAL_LINKS_QUERY = defineQuery(`
+  *[_type == "socialLink" && isActive == true] | order(order asc, title asc) {
+    _id,
+    title,
+    url,
+    iconSvg,
+    order,
+    isActive
   }
 `);
