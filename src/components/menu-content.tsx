@@ -37,7 +37,7 @@ export function MenuContent() {
             </SidebarHeader>
             <SidebarContent>
                 <NavMain items={navigationData.navMain} />
-                <NavSecondary items={navigationData.navSecondary} />
+                <NavSecondary />
             </SidebarContent>
         </>
     );
