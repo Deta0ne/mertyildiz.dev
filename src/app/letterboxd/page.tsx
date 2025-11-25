@@ -6,7 +6,7 @@ import { createLetterboxdMetadata } from '@/lib/metadata-utils';
 import { CinemaThemedBg } from '@/components/ui/background';
 
 export const revalidate = 86400;
-export const dynamic = 'force-dynamic';
+
 
 export const metadata = createLetterboxdMetadata();
 
