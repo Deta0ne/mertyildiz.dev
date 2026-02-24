@@ -33,7 +33,7 @@ export async function POST(req: NextRequest) {
     const jsonBody = JSON.parse(body)
     const { _type, slug, _id } = jsonBody
 
-    revalidateTag('sanity');
+    revalidateTag('sanity', 'default');
 
     const revalidatedPaths: string[] = []
 
@@ -50,7 +50,7 @@ export async function POST(req: NextRequest) {
 
       case 'techStack':
         revalidatePath('/stack')
-        revalidatePath('/') 
+        revalidatePath('/')
         revalidatedPaths.push('/stack', '/')
         break
 
@@ -87,9 +87,9 @@ export async function POST(req: NextRequest) {
 
   } catch (error) {
     return NextResponse.json(
-      { 
+      {
         success: false,
-        message: 'Webhook processing failed', 
+        message: 'Webhook processing failed',
         error: error instanceof Error ? error.message : 'Unknown error',
         timestamp: new Date().toISOString()
       },
